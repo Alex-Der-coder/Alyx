@@ -20,6 +20,9 @@ dependencies:
   '@heroicons/react':
     specifier: ^2.1.1
     version: 2.1.1(react@18.2.0)
+  '@types/keypress.js':
+    specifier: ^2.1.3
+    version: 2.1.3
   '@vercel/speed-insights':
     specifier: ^1.0.10
     version: 1.0.10(next@14.1.2)(react@18.2.0)
@@ -79,6 +82,9 @@ devDependencies:
   '@types/imagemin-jpegtran':
     specifier: ^5.0.4
     version: 5.0.4
+  '@types/keypress':
+    specifier: ^2.0.30
+    version: 2.0.30
   '@types/node':
     specifier: ^18.19.21
     version: 18.19.21
@@ -1474,6 +1480,15 @@ packages:
     resolution: {integrity: sha512-tah3dm+5sG+fEDAz6CrQ5evuEaPX9K6DF3E5a01MPOKhA2oGBoC+oA5EJzSugB905sN4DE19EDzldT2Cld2g6Q==}
     dependencies:
       '@types/node': 18.19.21
+    dev: true
+
+  /@types/keypress.js@2.1.3:
+    resolution: {integrity: sha512-jv+1ObzMLgR6Jl5MB29mHn8HfY251/IEz3EFm6du4gSyIe6zSEHC5Tjay/UoGCYfvYmWDsDZtsItwiSdFnLzWQ==}
+    dev: false
+
+  /@types/keypress@2.0.30:
+    resolution: {integrity: sha512-PCS6Mrv4gbQ9167E25nuVmqerT4xM/zWuVFTLfHdQgBwmsfMj2kXR1DI3qZ5N3p21gbrPweRghci2CjMHRCWkA==}
+    deprecated: '''@types/keypress'' is now ''@types/keypress.js'''
     dev: true
 
   /@types/keyv@3.1.4:
