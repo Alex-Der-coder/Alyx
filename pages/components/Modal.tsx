@@ -2,7 +2,7 @@ import { Dialog } from '@headlessui/react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
-import useKeypress from 'react-use-keypress '
+import useKeypress from 'react-use-keypress'
 import type { ImageProps } from '../../lib/types'
 import SharedModal from './SharedModal'
 
@@ -13,7 +13,7 @@ export default function Modal({
   images: ImageProps[]
   onClose?: () => void
 }) {
-  let overlayRef = useRef()
+  let overlayRef = useRef(null)
   const router = useRouter()
 
   const { photoId } = router.query
@@ -23,9 +23,12 @@ export default function Modal({
   const [curIndex, setCurIndex] = useState(index)
 
   function handleClose() {
-    router.push('/', undefined, { shallow: true })
-    onClose()
+    router.push('/', undefined, { shallow: true });
+    if (typeof onClose === 'function') {
+      onClose();
+    }
   }
+  
   function changePhotoId(newVal: number) {
     let newIndex = newVal;
   
@@ -67,6 +70,10 @@ export default function Modal({
       changePhotoId(index - 1)
     }
   })
+
+
+
+
 
   return (
     <Dialog
