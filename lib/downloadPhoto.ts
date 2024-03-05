@@ -7,7 +7,7 @@ function forceDownload(blobUrl: string, filename: string) {
   a.remove()
 }
 
-export default function downloadPhoto(url: string, filename: string) {
+export default function downloadPhoto(url: any, filename: any) {
   if (!filename) filename = url.split('\\').pop().split('/').pop()
   fetch(url, {
     headers: new Headers({
