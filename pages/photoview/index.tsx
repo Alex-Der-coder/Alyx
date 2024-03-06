@@ -14,6 +14,7 @@ import { useLastViewedPhoto } from '../../lib/useLastViewedPhoto'
 import Navbar from '../components/nav_bar'
 
 
+
 const PhotoView: NextPage<{ images: ImageProps[] }> = ({ images }) => {
   const router = useRouter()
   const { photoId } = router.query
@@ -23,11 +24,17 @@ const PhotoView: NextPage<{ images: ImageProps[] }> = ({ images }) => {
 
   useEffect(() => {
     // This effect keeps track of the last viewed photo in the modal to keep the index page in sync when the user navigates back
-    if (lastViewedPhoto && !photoId) {
+    if (lastViewedPhoto && !photoId &&  lastViewedPhotoRef.current) {
       lastViewedPhotoRef.current.scrollIntoView({ block: 'center' })
       setLastViewedPhoto(null)
     }
   }, [photoId, lastViewedPhoto, setLastViewedPhoto])
+  let photoToSetLastViewed: any | null = null; // Initialiser à null
+
+  // Vérifier que photoId est de type string avant de l'assigner à photoToSetLastViewed
+  if (typeof photoId === 'string') {
+    photoToSetLastViewed = photoId;
+  }
 
   return (
     <>
@@ -49,7 +56,7 @@ const PhotoView: NextPage<{ images: ImageProps[] }> = ({ images }) => {
           <Modal
             images={images}
             onClose={() => {
-              setLastViewedPhoto(photoId)
+              setLastViewedPhoto(photoToSetLastViewed)
             }}
           />
         )}
