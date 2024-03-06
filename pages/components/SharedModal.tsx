@@ -9,7 +9,6 @@ import {
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faArrowAltCircleDown, faExternalLinkAlt, faArrowAltCircleUp, faUndo, faTimes } from '@fortawesome/free-solid-svg-icons';
-
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -39,7 +38,7 @@ export default function SharedModal({
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      if (index < images?.length - 1) {
+      if (images && index < images.length - 1) {
         changePhotoId(index + 1)
       }
     },
@@ -79,18 +78,20 @@ export default function SharedModal({
                 exit="exit"
                 className="absolute"
               >
-                <Image
-                  src={`https://res.cloudinary.com/${
-                    process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-                  }/image/upload/c_scale,${navigation ? 'w_1280' : 'w_1920'}/${
-                    currentImage.public_id
-                  }.${currentImage.format}`}
-                  width={navigation ? 1280 : 1920}
-                  height={navigation ? 853 : 1280}
-                  priority
-                  alt="Next.js Conf image"
-                  onLoad={() => setLoaded(true)}
-                />
+              {currentImage && (
+        <Image
+        src={`https://res.cloudinary.com/${
+      process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+    }/image/upload/c_scale,${navigation ? 'w_1280' : 'w_1920'}/${
+      currentImage.public_id
+    }.${currentImage.format}`}
+    width={navigation ? 1280 : 1920}
+    height={navigation ? 853 : 1280}
+    priority
+    alt="Next.js Conf image"
+    onLoad={() => setLoaded(true)}
+  />
+)}
               </motion.div>
             </AnimatePresence>
           </div>
@@ -122,7 +123,7 @@ export default function SharedModal({
              </>
               )}
               <div className="absolute top-0 right-0 flex items-center gap-2 p-3 text-white">
-                {navigation ? (
+                {currentImage && navigation ? (
                   <a
                     href={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${currentImage.public_id}.${currentImage.format}`}
                     className="rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white"
@@ -144,12 +145,14 @@ export default function SharedModal({
                   </a>
                 )}
                 <button
-                  onClick={() =>
-                    downloadPhoto(
-                      `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${currentImage.public_id}.${currentImage.format}`,
-                      `${index}.jpg`
-                    )
-                  }
+                  onClick={() => {
+                    if (currentImage) {
+                        downloadPhoto(
+                            `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${currentImage.public_id}.${currentImage.format}`,
+                            `${index}.jpg`
+                        );
+                    }
+                }}
                   className="rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white"
                   title="Download fullsize version"
                 >
@@ -178,28 +181,29 @@ export default function SharedModal({
                 className="mx-auto mt-6 mb-6 flex aspect-[3/2] h-14"
               >
                 <AnimatePresence initial={false}>
-                  {filteredImages.map(({ public_id, format, id }) => (
-                    <motion.button
-                      initial={{
-                        width: '0%',
-                        x: `${Math.max((index - 1) * -100, 15 * -100)}%`,
-                      }}
-                      animate={{
-                        scale: id === index ? 1.25 : 1,
-                        width: '100%',
-                        x: `${Math.max(index * -100, 15 * -100)}%`,
-                      }}
-                      exit={{ width: '0%' }}
-                      onClick={() => changePhotoId(id)}
-                      key={id}
-                      className={`${
-                        id === index
-                          ? 'z-20 rounded-md shadow shadow-black/50'
-                          : 'z-10'
-                      } ${id === 0 ? 'rounded-l-md' : ''} ${
-                        id === images.length - 1 ? 'rounded-r-md' : ''
-                      } relative inline-block w-full shrink-0 transform-gpu overflow-hidden focus:outline-none`}
-                    >
+                {images && filteredImages?.map(({ public_id, format, id }) => (
+  <motion.button
+    initial={{
+      width: '0%',
+      x: `${Math.max((index - 1) * -100, 15 * -100)}%`,
+    }}
+    animate={{
+      scale: id === index ? 1.25 : 1,
+      width: '100%',
+      x: `${Math.max(index * -100, 15 * -100)}%`,
+    }}
+    exit={{ width: '0%' }}
+    onClick={() => changePhotoId(id)}
+    key={id}
+    className={`${
+      id === index
+        ? 'z-20 rounded-md shadow shadow-black/50'
+        : 'z-10'
+    } ${id === 0 ? 'rounded-l-md' : ''} ${
+      id === images.length - 1 ? 'rounded-r-md' : ''
+    } relative inline-block w-full shrink-0 transform-gpu overflow-hidden focus:outline-none`}
+  >
+
                       <Image
                         alt="small photos on the bottom"
                         width={180}
