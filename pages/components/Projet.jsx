@@ -52,7 +52,7 @@ const Project = ({ proj  }) => {
           )}
           
           <div className="projectTechno" style={{ display: showQRCode  ? 'none' : 'flex' }}>
-          {proj.techno.map((tech, index) => (
+          {proj && proj.techno && proj.techno.map((tech, index) => (
             <img
               key={index}
               src={tech}
