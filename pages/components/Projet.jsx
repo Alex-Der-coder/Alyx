@@ -22,12 +22,13 @@ const Project = ({ proj  }) => {
     <div className={`project ${isFlipped ? 'project-active' : ''}`} key={proj.id}>
       <div className="card-inner">
         <div className="card-front">
-        {proj && (
+            {proj && (
         <h2 data-testid="Titleprojet" className="projectTitle">
            {proj.name}
             <FontAwesomeIcon  onClick={toggleQRCode} icon={faQrcode} className="fa-fade" />
           </h2>
           )}
+            {proj && (
           <a href={proj.link} className="projectGitLink">
             <div className="container_img">
               {showQRCode ? (
@@ -45,7 +46,11 @@ const Project = ({ proj  }) => {
               )}
             </div>
           </a>
+            )}
+             {proj && (
           <p className="projectDescription">{proj.description}</p>
+          )}
+          
           <div className="projectTechno" style={{ display: showQRCode  ? 'none' : 'flex' }}>
           {proj.techno.map((tech, index) => (
             <img
