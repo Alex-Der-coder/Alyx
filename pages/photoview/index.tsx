@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Document, {  Html, Main, NextScript } from 'next/document'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -50,7 +51,8 @@ const PhotoView: NextPage<{ images: ImageProps[] }> = ({ images }) => {
           content="https://nextjsconf-pics.vercel.app/og-image.png"
         />
       </Head>
-      <main className="mx-auto max-w-[1960px] p-4">
+
+      <main className="mx-auto max-w-[1960px] p-4 bg-black antialiased">
         <Navbar/>
         {photoId && (
           <Modal
@@ -113,7 +115,7 @@ const PhotoView: NextPage<{ images: ImageProps[] }> = ({ images }) => {
           ))}
         </div>
       </main>
-      <footer className="p-6 text-center text-white/80 sm:p-12">
+      <footer className="p-6 text-center text-white/80 sm:p-12 bg-black antialiased">
         Thank you to{' '}
         <a
           href="https://edelsonphotography.com/"
