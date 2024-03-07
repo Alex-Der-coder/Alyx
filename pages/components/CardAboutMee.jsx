@@ -76,12 +76,10 @@ const CardAboutMee = () => {
     )
 };
   
-
 export const getStaticProps = async () => {
-
   return {
-   
-    revalidate: 60, 
+    props: {}, // Return an empty object since there's no dynamic data
+    revalidate: 3600 // Add revalidation time if needed
   };
 };
 
