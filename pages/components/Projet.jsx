@@ -71,6 +71,7 @@ const Project = ({ proj  }) => {
       </span></button>
         </div>
         </div>
+        {proj && (
         <div className="card-back">
           <h2>Contexte :</h2>
           <p>{proj.contexte}</p>
@@ -80,6 +81,7 @@ const Project = ({ proj  }) => {
         →
       </span></button>
         </div>
+        )}
         </div>
     </div>
   );
