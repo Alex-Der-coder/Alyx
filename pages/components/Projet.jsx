@@ -19,7 +19,8 @@ const Project = ({ proj  }) => {
 
   return (
 
-    <div className={`project ${isFlipped ? 'project-active' : ''}`} key={proj.id}>
+    <div className={`project ${isFlipped ? 'project-active' : ''}`} key={proj && proj.id}>
+
       <div className="card-inner">
         <div className="card-front">
             {proj && (
@@ -84,6 +85,7 @@ const Project = ({ proj  }) => {
         )}
         </div>
     </div>
+    
   );
 };
 
