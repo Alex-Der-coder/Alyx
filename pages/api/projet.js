@@ -6,6 +6,8 @@ export default async (req, res) => {
         const db = client.db("API");
 
         if (req.method === 'GET') {
+
+            res.setHeader('Access-Control-Allow-Origin', '*');
             // Fetching Users
             const users = await db
                 .collection("Portefolio")

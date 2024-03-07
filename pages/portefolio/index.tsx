@@ -13,7 +13,7 @@ export default function Portefolio() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/projet');
+        const response = await fetch('https://localhost:3000/api/projet');
         
         if (!response.ok) {
           throw new Error('Network response was not ok');
