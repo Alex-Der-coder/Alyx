@@ -6,7 +6,6 @@ export default async (req, res) => {
         const db = client.db("API");
 
         if (req.method === 'GET') {
-
             // Fetching Users
             const users = await db
                 .collection("Portefolio")
