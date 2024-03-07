@@ -7,7 +7,10 @@ export default async (req, res) => {
 
         if (req.method === 'GET') {
 
-            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Origin', 'https://portefoliov3-beta.vercel.app/');
+            res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+            res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+            
             // Fetching Users
             const users = await db
                 .collection("Portefolio")
