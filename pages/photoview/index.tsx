@@ -15,7 +15,6 @@ import { useLastViewedPhoto } from '../../lib/useLastViewedPhoto'
 import Navbar from '../components/nav_bar'
 
 
-
 const PhotoView: NextPage<{ images: ImageProps[] }> = ({ images }) => {
   const router = useRouter()
   const { photoId } = router.query
