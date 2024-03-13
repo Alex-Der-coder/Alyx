@@ -4,7 +4,7 @@ import NavigationMenuDemo  from '../components/NavigationMenuDemo'
 import Footer from "../components/Footer";
 import WhoIAm from "../components/WhoIAm"
 import Techno from "../components/Techno"
-import { AccordionDemo } from "../components/AccordionDemo";
+import AccordionDemo  from "../components/AccordionDemo";
 export default function Portefolio() {
 
   const [data, setData] = useState(null);

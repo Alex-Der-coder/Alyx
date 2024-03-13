@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from "../../@/components/ui/accordion"
 
-export function AccordionDemo() {
+export default function AccordionDemo() {
   return (
     <aside className="flex justify-around h-[15rem]">
     <Accordion type="single" collapsible className="w-[20%] flex flex-wrap flex-col">
