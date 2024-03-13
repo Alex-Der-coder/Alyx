@@ -249,10 +249,3 @@ export default function Home({
   );
 }
 
-Home.getLayout = function getLayout(Home) {
-  return (
-    <Layout>
-      <NestedLayout>{Home}</NestedLayout>
-    </Layout>
-  )
-}
