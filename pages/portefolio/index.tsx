@@ -1,6 +1,6 @@
 
 import React , { useState,useEffect} from "react";
-import {NavigationMenuDemo } from '../components/NavigationMenuDemo'
+import NavigationMenuDemo  from '../components/NavigationMenuDemo'
 import Footer from "../components/Footer";
 import WhoIAm from "../components/WhoIAm"
 import Techno from "../components/Techno"
