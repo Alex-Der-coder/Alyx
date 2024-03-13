@@ -248,3 +248,11 @@ export default function Home({
     </div>
   );
 }
+
+Home.getLayout = function getLayout(Home) {
+  return (
+    <Layout>
+      <NestedLayout>{Home}</NestedLayout>
+    </Layout>
+  )
+}

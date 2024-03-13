@@ -4,3 +4,4 @@ declare module 'react-use-keypress' {
       callback?: (e: KeyboardEvent) => void
     );
   }
+

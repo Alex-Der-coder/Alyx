@@ -1,15 +1,16 @@
 import React from 'react';
- import VideoPlayer from './VideoPlayer';
 import CardAboutMee from './CardAboutMee';
 import { SpeedInsights } from "@vercel/speed-insights/react"
+import Calendar from "../components/CalendarDemo"
 
 const WhoIAm = () => {
 
   return (
-    <section className="whoIAm" id="whoIAmSection">
-      <div className="presentationContainer">
+    <section className="h-[28rem] pt-[7rem]" id="whoIAmSection">
+      <div className="flex flex-row justify-around ">
       <SpeedInsights/>
       <CardAboutMee />
+      <Calendar />
       </div>
     </section>
   );

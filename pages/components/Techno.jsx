@@ -30,10 +30,10 @@ const Techno = ({ data }) => {
 
   return (
     <section className="projectsSection" id="projects">
-      <div className="sectionTitle">
+      <div className="sectionTitle mt-[2%] text-center bg-gradient-to-r from-yellow-300 to-red-700 bg-clip-text text-transparent">
         <h2>Mes Projets</h2>
       </div>
-      <div className="projectList">
+      <div className="projectList  flex justify-around flex-wrap p-[5%] ml-[-1%] mt-[5%] h-[85rem]">
         {currentPageData.map((projectData) => (
           <Project key={projectData.id} proj={projectData} />
         ))}
@@ -49,6 +49,7 @@ const Techno = ({ data }) => {
           activeClassName={'active-pagination'}
         />
       </div>
+
     </section>
   );
 };

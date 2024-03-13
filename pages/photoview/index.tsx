@@ -12,7 +12,7 @@ import cloudinary from '../../lib/cloudinary'
 import getBase64ImageUrl from '../../lib/generateBlurPlaceholder'
 import type { ImageProps } from '../../lib/types'
 import { useLastViewedPhoto } from '../../lib/useLastViewedPhoto'
-import Navbar from '../components/nav_bar'
+
 
 
 const PhotoView: NextPage<{ images: ImageProps[] }> = ({ images }) => {
@@ -52,7 +52,7 @@ const PhotoView: NextPage<{ images: ImageProps[] }> = ({ images }) => {
       </Head>
 
       <main className="mx-auto max-w-[1960px] p-4 bg-black antialiased">
-        <Navbar/>
+       
         {photoId && (
           <Modal
             images={images}

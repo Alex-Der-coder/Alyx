@@ -1,11 +1,10 @@
-// Home.js
-import React , { useState,useEffect} from "react";
 
+import React , { useState,useEffect} from "react";
+import {NavigationMenuDemo } from '../components/NavigationMenuDemo'
 import Footer from "../components/Footer";
-import Navbar from "../components/nav_bar";
 import WhoIAm from "../components/WhoIAm"
 import Techno from "../components/Techno"
-
+import { AccordionDemo } from "../components/AccordionDemo";
 export default function Portefolio() {
 
   const [data, setData] = useState(null);
@@ -32,9 +31,10 @@ export default function Portefolio() {
 
   return (
     <>
-      <Navbar />
+      <NavigationMenuDemo  />
       <WhoIAm />
       <Techno data={data} />
+      <AccordionDemo />
       <Footer />
 
     </>

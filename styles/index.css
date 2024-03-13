@@ -1,60 +1,84 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
 
-.whoIAm {
-  padding-top: 80px;
-  height: 65vh;
-}    
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+ 
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+ 
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+ 
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+ 
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+ 
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+ 
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+ 
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+ 
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+ 
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+ 
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+ 
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+   
 .mediaIcons {
   display: flex;
   margin: 50px 120px;  
-}
-
-
-
-
-ul{
-  margin:0;
-  padding: 0;
-  list-style: none;
-  padding-right: 40%;
-}
-
-
-#menu > li{
-  width:150px;
-  height:40px;
-  float:left;
-  text-align: center;
-  line-height: 40px;
-  cursor:pointer;
-  background: black;
-}
-
-#menu li ul a{
-  display: block;
-  width:150px;
-  height:40px;
-  background: black;
-  text-decoration: none;
-  color:white;
-}
-
-#menu li ul {
-  height: 0;
-  overflow: hidden;
-  transition:1s all;
-}
-
-#menu  li a {
-  list-style: none;
-  color: #fff;
-  text-decoration: none;
-}
-
-#menu li:hover ul{
-  height: 120px;
 }
 
 .no-margin {
@@ -124,14 +148,6 @@ input:checked + .slider:before {
   box-shadow: none;
 }
 
-
-.title {
-  font-size: 1.5em;
-  font-weight: 900;
-  text-align: center;
-  margin: 0;
-}
-
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -139,10 +155,6 @@ input:checked + .slider:before {
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-}
-
-.flip-card-active  .flip-card-inner {
-  transform: rotateY(180deg);
 }
 
 .flip-card-front, .flip-card-back {
@@ -181,45 +193,6 @@ input:checked + .slider:before {
 
 .flip-card-back {
   backface-visibility: hidden;
-}
-
-
-
-.name-client {
-  margin: 0;
-  margin-top: 20px;
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.name-client span {
-  display: block;
-  font-weight: 200;
-  font-size: 16px;
-}
-
-.social-media:before {
-  content: " ";
-  display: block;
-  width: 100%;
-  height: 2px;
-  margin: 20px 0;
-  background: black;
-}
-
-.social-media a {
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-}
-
-.social-media a:last-child {
-  margin-right: 0;
-}
-
-.social-media a svg {
-  width: 1.1rem;
-  fill: currentColor;
 }
 
 .tooltip-social {
@@ -290,33 +263,6 @@ input:checked + .slider:before {
   transition-duration: 0.3s;
 }
 
-.card {
-  width: fit-content;
-  height: fit-content;
-  background-color: rgb(238, 238, 238);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 25px 25px;
-  gap: 20px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
-}
-
-.container_social {
-  display: flex;
-  background: white;
-  padding-left: 15px;
-  padding-top: 15px;
-  padding-right: 15px;
-  padding-bottom: 15px;
-  gap: 15px;
-}
-
-.container_button {
-  display: inline-flex;
-  margin-right: 1rem;
-  margin-top: 0.8rem;
-}
 
 .button_flip {
   display: flex;
@@ -338,54 +284,18 @@ input:checked + .slider:before {
   }
 }
 
-
 .place-button_flip { 
   position: relative;
   top: 52%;
   left: 40%;
 }
 
-.container_button {
-  display: flex;
-  justify-content: flex-end;
-  height: 3rem;
-}
-
-
-
-
 .projectsSection {
   
   .projectList {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    background-color: #DCDCDC;
-    padding-top: 5%;
-    margin-left: -1%;
-    margin-top: 5%;
-    height: 85rem;
     .projectGitLink {
-      text-decoration: none;
     }
     .project {
-      display: flex;
-      z-index: 5;
-      flex-direction: column;
-      justify-content: space-between;
-      margin: 10px 40px;
-      border: 1px solid #dedede;
-      border-radius: 10px;
-      box-shadow: 3px 5px 5px #36323261;
-      width: 28%;
-      height: 23rem;
-      transition-duration: 300ms;
-      max-width: 25rem;
-      cursor: pointer;
-      background-color: wheat;
-      &:hover {
-        transform: scale(1.1);
-      }
       .projectImg {
         object-fit: cover;
         border-bottom: 1px solid #dedede;
@@ -403,13 +313,7 @@ input:checked + .slider:before {
         font-weight: bold;
         font-size: 20px;
       }
-      .projectDescription {
-        padding: 2px;
-        font-size: 14px;
-        text-align: center;
-        height: 50px;
-      }
-      
+   
       .projectTechno {
         display: flex;
         justify-content: center;
@@ -425,13 +329,6 @@ input:checked + .slider:before {
   }
 }
 
-h2.projectTitle > svg {
-  height: 30px;
-}
-
-.project-active  .card-inner {
-  transform: rotateY(180deg);
-}
 
 .not_active {
   border-radius: 10%;
@@ -456,25 +353,6 @@ h2.projectTitle > svg {
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 3%;
-}
-
-
-.kasa {
-  width: 85%;
-  height: 215px;
-}
-
-.container_img {
-  display: flex;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-  justify-content: center;
-}
-
-canvas {
-  width: 68%;
 }
 
 .fa-fade {
@@ -509,7 +387,7 @@ list-style: none;
   display: flex;
   justify-content: space-between;
   width: 5%;
-  top: 118.5rem;
+  top: 116.5rem;
   position: absolute;
   left: 90%;
   padding-right: unset;
