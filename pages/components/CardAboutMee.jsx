@@ -13,9 +13,9 @@ const CardAboutMee = () => {
   };
  
     return (
-      <div className=" bg-transparent w-[13rem] h-[254px] font-sans absolute left-[3%] top-[14%]">
-        <div className={`bg-transparent w-[13rem] h-[254px] font-sans absolute left-[3%] top-[14%] ${isFlipped ? ' bg-transparent w-[13rem] h-[254px] font-sans absolute left-[3%] top-[14%] flip-card-active' : ''}`}>
-      <div className="flip-card-inner ">
+      <div className=" bg-transparent w-[13rem] h-[254px] font-sans ">
+        <div className="bg-transparent w-[13rem] h-[254px] font-sans ">
+        <div className="flip-card-inner" style={isFlipped ? { transform: 'rotateY(180deg)' } : {}}>
             <div className="flip-card-front">
               <div className="overflow-hidden object-cover w-[5rem] h-[5rem] border-solid border-2 border-black rounded-[50%] flex justify-center items-center m-auto ">
                 <img src="https://res.cloudinary.com/df1z0o9nt/image/upload/s--hqU-nLwC--/c_fill,h_120,w_120/f_auto/q_auto/r_max/Projet_Openclassroom/Alexandre_De-Roeck.jpg" alt='head of Alexandre De Roeck'/>

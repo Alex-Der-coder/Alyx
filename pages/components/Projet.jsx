@@ -19,7 +19,7 @@ const Project = ({ proj  }) => {
 
   return (
 
-    <div className="project flex flex-col justify-between my-[10px] mx-[40px] border-solid border-2 border-white rounded-[10px] max-w-[23rem] w-[28%] h-[23rem] duration-300 hover:scale-[1.1]" key={proj && proj.id}>
+    <div className="project  shadow-[-4px_1px_12px_10px_rgba(0,0,0,0.35)] flex flex-col justify-between my-[10px] mx-[40px] border-solid border-2 border-white rounded-[10px] max-w-[23rem] w-[28%] h-[23rem] duration-300 hover:scale-[1.1]" key={proj && proj.id}>
       <div className="card-inner" style={isFlipped ? { transform: 'rotateY(180deg)' } : {}}>
         <div className="card-front rotate-0 " style={{WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
             {proj && (
