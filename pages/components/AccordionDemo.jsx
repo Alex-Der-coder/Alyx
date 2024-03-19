@@ -7,7 +7,7 @@ import {
 
 export default function AccordionDemo() {
   return (
-    <aside className="flex justify-around h-[15rem]">
+    <aside id="faq"  className="flex justify-around h-[15rem]">
     <Accordion type="single" collapsible className="w-[20%] flex flex-wrap flex-col">
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>

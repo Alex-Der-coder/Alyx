@@ -23,11 +23,10 @@ export default function Carousel({
     }
 
     const currentPhoto: Photo = {
-      id: 1, // exemple
+      id: Number// exemple
       // Autres valeurs de propriétés
     };
     setLastViewedPhoto(currentPhoto.id)
-    router.push('/', undefined, { shallow: true })
   }
 
   function changePhotoId(newVal: number) {

@@ -14,9 +14,8 @@ const CardAboutMee = () => {
  
     return (
       <div className=" bg-transparent w-[13rem] h-[254px] font-sans ">
-        <div className="bg-transparent w-[13rem] h-[254px] font-sans ">
         <div className="flip-card-inner" style={isFlipped ? { transform: 'rotateY(180deg)' } : {}}>
-            <div className="flip-card-front">
+            <div className="flip-card-front bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] via-50% to-[#fcb045] rounded-2xl absolute flex flex-col justify-center w-[100%] h-[22rem] text-white border-2 border-[#fb7f51] ">
               <div className="overflow-hidden object-cover w-[5rem] h-[5rem] border-solid border-2 border-black rounded-[50%] flex justify-center items-center m-auto ">
                 <img src="https://res.cloudinary.com/df1z0o9nt/image/upload/s--hqU-nLwC--/c_fill,h_120,w_120/f_auto/q_auto/r_max/Projet_Openclassroom/Alexandre_De-Roeck.jpg" alt='head of Alexandre De Roeck'/>
               </div >
@@ -71,15 +70,13 @@ const CardAboutMee = () => {
           </div>
       </div>
     </div>
-
-  </div>
     )
 };
   
 export const getStaticProps = async () => {
   return {
-    props: {}, // Return an empty object since there's no dynamic data
-    revalidate: 3600 // Add revalidation time if needed
+    props: {},
+    revalidate: 3600 
   };
 };
 

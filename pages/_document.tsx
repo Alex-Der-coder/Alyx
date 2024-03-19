@@ -22,7 +22,6 @@ class MyDocument extends Document {
             name="twitter:description"
             content="See pictures from Next.js Conf and the After Party."
           />
-           <title>Portefolio Alexandre De Roeck</title>
            <meta name="description" content="Explore my portfolio showcasing innovative JavaScript/React applications, crafted to deliver seamless user experiences and cutting-edge functionalities." />
         </Head>
         <body>
