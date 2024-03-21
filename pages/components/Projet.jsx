@@ -19,7 +19,7 @@ const Project = ({ proj  }) => {
 
   return (
 
-    <div  className="project  shadow-[-4px_1px_12px_10px_rgba(0,0,0,0.35)] flex flex-col justify-between my-[10px] mx-[40px] border-solid border-2 border-white rounded-[10px] max-w-[23rem] w-[28%] h-[23rem] duration-300 hover:scale-[1.1]" key={proj && proj.id}>
+    <div  className="project  shadow-[-4px_1px_12px_10px_rgba(0,0,0,0.35)] flex flex-col justify-between my-[10px] mx-[40px] border-solid border-2 border-white rounded-[10px] max-w-[23rem] w-[28%] h-[23rem] duration-300 hover:scale-[1.1] max-[640px]:w-[100%] max-[640px]:mx-[10px] max-[640px]:h-[25rem] " key={proj && proj.id}>
       <div className="card-inner" style={isFlipped ? { transform: 'rotateY(180deg)' } : {}}>
         <div className="card-front rotate-0 " style={{WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
             {proj && (
@@ -46,15 +46,15 @@ const Project = ({ proj  }) => {
           </a>
             )}
              {proj && (
-          <p className="projectDescription p-[2px] text-[14px] text-center h-[50px] ">{proj.description}</p>
+          <p className="projectDescription p-[2px] text-[14px] text-center h-[50px] max-[640px]:text-[12px] max-[640px]:mt-[10px] max-[640px]:mb-[10px] ">{proj.description}</p>
           )}
           
-          <div className="projectTechno" style={{ display: showQRCode  ? 'none' : 'flex' }}>
+          <div className="projectTechno  " style={{ display: showQRCode  ? 'none' : 'flex' }}>
           {proj && proj.techno && proj.techno.map((tech, index) => (
             <img
               key={index}
               src={tech}
-              className="technos"
+              className="technos max-[640px]:hidden "
               loading="lazy"
               fetchpriority="low"
               alt={`Technologie used in this project: ${tech

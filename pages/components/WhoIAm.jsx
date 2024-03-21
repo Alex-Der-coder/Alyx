@@ -6,8 +6,8 @@ import Calendar from "../components/CalendarDemo"
 const WhoIAm = () => {
 
   return (
-    <section className="h-[28rem] pt-[7rem]" id="whoIAmSection">
-      <div className="flex flex-row justify-around ">
+    <section className="h-[28rem] pt-[7rem] max-[640px]:grid   max-[640px]:justify-center  max-[640px]:h-auto " id="whoIAmSection">
+      <div className="flex flex-row justify-around max-[640px]:flex-col   max-[640px]:h-[125vh]">
       <SpeedInsights/>
       <CardAboutMee />
       <Calendar />

@@ -7,8 +7,8 @@ import {
 
 export default function AccordionDemo() {
   return (
-    <aside id="faq"  className="flex justify-around h-[15rem]">
-    <Accordion type="single" collapsible className="w-[20%] flex flex-wrap flex-col">
+    <aside id="faq"  className="flex justify-around h-[15rem] max-[640px]:flex-wrap max-[640px]:h-[27rem] ">
+    <Accordion type="single" collapsible className="w-[20%] flex flex-wrap flex-col max-[640px]:w-[63%]">
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>
@@ -29,7 +29,7 @@ export default function AccordionDemo() {
         </AccordionContent>
       </AccordionItem>
       </Accordion>
-      <Accordion collapsible className="w-[20%] flex flex-wrap flex-col">
+      <Accordion collapsible className="w-[20%] flex flex-wrap flex-col  max-[640px]:w-[63%]">
       <AccordionItem value="item-4">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>
