@@ -213,10 +213,7 @@
   height: 31.1833px; 
   transition: background-color 0.3s, color 0.3s; 
   border: none;
-  &:hover {
-    background-color: white;
-    color: #148672;
-  }
+
 }
 
 .place-button_flip { 

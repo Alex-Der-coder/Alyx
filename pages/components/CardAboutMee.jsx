@@ -45,7 +45,7 @@ const CardAboutMee = () => {
           </div>
           </div>
           <div className="flex justify-end h-[3rem] mr-[1rem] mt-[0.8rem]">
-           <button className="button_flip" onClick={handleButtonClick}>
+           <button className="button_flip  hover:bg-[#fff] hover:text-[#148672]" onClick={handleButtonClick}>
            <p>Read More</p><span aria-hidden="true">
         →
       </span></button>
