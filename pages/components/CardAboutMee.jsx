@@ -51,7 +51,7 @@ const CardAboutMee = () => {
       </span></button>
           </div>
           </div>
-          <div className="flip-card-back rotate-[180deg] absolute w-[100%] h-[22rem] flex flex-col items-center justify-center ">
+          <div style={{ transform: 'rotateY(180deg)'  , backfaceVisibility: 'hidden'  }} className=" text-white border-2 border-[#fb7f51] rounded-2xl bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] via-50% to-[#fcb045] absolute w-[100%] h-[22rem] flex flex-col items-center justify-center ">
             <div className="absolute top-[3%]">
               <p className="text-[1.5em] font-black text-center ">À propos de moi </p>
               <div className="flex flex-col justify-between">
@@ -62,7 +62,7 @@ const CardAboutMee = () => {
               <p className="m-[10px]"><FontAwesomeIcon icon={faArrowRight} fade />&nbsp;Google Calendar&nbsp;<a className="text-white" href="https://calendly.com/mr-alexandre-deroeck/30min" aria-label="Prendre rendez-vous avec moi"><FontAwesomeIcon icon={faCalendar} /></a></p>
               <p className="m-[10px]"><FontAwesomeIcon icon={faArrowRight} fade />&nbsp;Mon profil Steam&nbsp;<a className="text-white" href="steam://openurl/https://steamcommunity.com/profiles/76561198000304766" target="_blank" rel="noreferrer" aria-label="se détendre en jouant a deux"><FontAwesomeIcon icon={faSteam} /></a></p>
             </div>
-              <button className="button_flip place-button_flip" onClick={handleButtonClick}>
+              <button className="button_flip place-button_flip  hover:bg-[#fff] hover:text-[#148672]" onClick={handleButtonClick}>
            <p>Read More</p><span aria-hidden="true">
         →
       </span></button>

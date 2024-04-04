@@ -92,7 +92,7 @@
   transform-style: preserve-3d;
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front {
   box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
   position: absolute;
   display: flex;
@@ -112,13 +112,6 @@
   color:white;
 }
 
-.flip-card-back {
-  background: linear-gradient(90deg, #833ab4, #fd1d1d 50%, #fcb045);
-  color: white;
-  transform: rotateY(180deg);
-}
-
-
 
 .flip-card-inner {
   transition: transform 0.6s;
@@ -126,9 +119,7 @@
   position: relative;
 }
 
-.flip-card-back {
-  backface-visibility: hidden;
-}
+
 
 .tooltip-social {
   background: #262626;

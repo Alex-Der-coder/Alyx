@@ -70,7 +70,7 @@ const Project = ({ proj  }) => {
         </div>
         </div>
         {proj && (
-        <div className="card-back " style={{WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
+        <div className="absolute w-[100%] h-[100%] " style={{transform: 'rotateY(180deg)' , WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
           <h2 >Contexte :</h2>
           <p>{proj.contexte}</p>
           <p>Voir le repos Git <a href={proj.repos} aria-label="Lien du projet présenter"><FontAwesomeIcon icon={faCodeFork} fade style={{color: "#1e3050",}} /></a></p>

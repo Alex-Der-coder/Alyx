@@ -969,6 +969,10 @@ body {
   height: 1.2rem;
 }
 
+.h-\[100\%\] {
+  height: 100%;
+}
+
 .h-\[15rem\] {
   height: 15rem;
 }
@@ -1035,10 +1039,6 @@ body {
 
 .h-px {
   height: 1px;
-}
-
-.h-\[100\%\] {
-  height: 100%;
 }
 
 .max-h-full {
@@ -1190,11 +1190,6 @@ body {
 
 .rotate-90 {
   --tw-rotate: 90deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.rotate-\[180deg\] {
-  --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -2075,7 +2070,7 @@ body {
   transform-style: preserve-3d;
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front {
   box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
   position: absolute;
   display: flex;
@@ -2086,27 +2081,14 @@ body {
   backface-visibility: hidden;
   border: 1px solid coral;
   border-radius: 1rem;
-}
-
-.flip-card-front {
   background: linear-gradient(90deg, #833ab4, #fd1d1d 50%, #fcb045);
   color:white;
-}
-
-.flip-card-back {
-  background: linear-gradient(90deg, #833ab4, #fd1d1d 50%, #fcb045);
-  color: white;
-  transform: rotateY(180deg);
 }
 
 .flip-card-inner {
   transition: transform 0.6s;
   transform-style: preserve-3d;
   position: relative;
-}
-
-.flip-card-back {
-  backface-visibility: hidden;
 }
 
 .tooltip-social {
