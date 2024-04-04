@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Project from './Projet';
 import ReactPaginate from 'react-paginate';
+import SkeletonCard  from './SkeletonCard';
+import { Suspense } from 'react';
+
 
 const Techno = ({ data }) => {
 
@@ -33,9 +36,14 @@ const Techno = ({ data }) => {
       <div className="sectionTitle mt-[2%] text-center bg-gradient-to-r from-yellow-300 to-red-700 bg-clip-text text-transparent">
         <h1>Mes Projets</h1>
       </div>
+
       <div className="projectList  flex justify-around flex-wrap p-[5%] ml-[-1%] mt-[5%] h-[85rem]">
+      
         {currentPageData.map((projectData) => (
-          <Project key={projectData.id} proj={projectData} />
+          <Suspense key={projectData.id} fallback={< SkeletonCard />}> 
+              <Project key={projectData.id} proj={projectData} />
+              </Suspense>
+  
         ))}
         <ReactPaginate
           previousLabel={'Précédent'}
@@ -48,6 +56,7 @@ const Techno = ({ data }) => {
           containerClassName={'pagination max-[640px]:hidden'}
           activeClassName={'active-pagination'}
         />
+       
       </div>
 
     </section>

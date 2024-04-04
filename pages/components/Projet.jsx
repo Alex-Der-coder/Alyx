@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQrcode } from '@fortawesome/free-solid-svg-icons';
 import { faCodeFork } from '@fortawesome/free-solid-svg-icons';
 import QRCode from 'qrcode.react';
-import {  SkeletonCard } from '../../pages/components/Skeletondemo';
+import {  SkeletonCard } from './SkeletonCard';
 import { Suspense } from 'react';
 
 const Project = ({ proj  }) => {
@@ -20,7 +20,7 @@ const Project = ({ proj  }) => {
   };
 
   return (
-<Suspense  fallback={< SkeletonCard />}> 
+
     <div  className="project  shadow-[-4px_1px_12px_10px_rgba(0,0,0,0.35)] flex flex-col justify-between my-[10px] mx-[40px] border-solid border-2 border-white rounded-[10px] max-w-[23rem] w-[28%] h-[23rem] duration-300 hover:scale-[1.1] max-[640px]:w-[100%] max-[640px]:mx-[10px] max-[640px]:h-[25rem] " key={proj && proj.id}>
       <div  style={isFlipped ? { transform: 'rotateY(180deg)', transformStyle: 'preserve-3d' , transition: 'transform .6s'  } : { transformStyle: 'preserve-3d', transition: 'transform .6s'  }} >
         <div className="rotate-0 absolute w-[100%] h-[100%]" style={{WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
@@ -72,7 +72,7 @@ const Project = ({ proj  }) => {
         </div>
         </div>
         {proj && (
-        <div className="absolute w-[100%] h-[100%] " style={{transform: 'rotateY(180deg)' , WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
+        <div className="absolute flex flex-col justify-between w-[100%] h-[355px] " style={{transform: 'rotateY(180deg)' , WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
           <h2 >Contexte :</h2>
           <p>{proj.contexte}</p>
           <p>Voir le repos Git <a href={proj.repos} aria-label="Lien du projet présenter"><FontAwesomeIcon icon={faCodeFork} fade style={{color: "#1e3050",}} /></a></p>
@@ -84,7 +84,7 @@ const Project = ({ proj  }) => {
         )}
         </div>
     </div>
-    </Suspense>
+    
   );
 };
 
