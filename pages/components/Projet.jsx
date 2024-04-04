@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQrcode } from '@fortawesome/free-solid-svg-icons';
 import { faCodeFork } from '@fortawesome/free-solid-svg-icons';
 import QRCode from 'qrcode.react';
+import {  SkeletonCard } from '../../pages/components/Skeletondemo';
+import { Suspense } from 'react';
 
 const Project = ({ proj  }) => {
   console.log(proj);
@@ -18,9 +20,9 @@ const Project = ({ proj  }) => {
   };
 
   return (
-
+<Suspense  fallback={< SkeletonCard />}> 
     <div  className="project  shadow-[-4px_1px_12px_10px_rgba(0,0,0,0.35)] flex flex-col justify-between my-[10px] mx-[40px] border-solid border-2 border-white rounded-[10px] max-w-[23rem] w-[28%] h-[23rem] duration-300 hover:scale-[1.1] max-[640px]:w-[100%] max-[640px]:mx-[10px] max-[640px]:h-[25rem] " key={proj && proj.id}>
-      <div className="card-inner" style={isFlipped ? { transform: 'rotateY(180deg)' } : {}}>
+      <div  style={isFlipped ? { transform: 'rotateY(180deg)', transformStyle: 'preserve-3d' , transition: 'transform .6s'  } : { transformStyle: 'preserve-3d', transition: 'transform .6s'  }} >
         <div className="rotate-0 absolute w-[100%] h-[100%]" style={{WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
             {proj && (
         <h2 data-testid="Titleprojet" className="bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] via-50% to-[#fcb045]  projectTitle items-center rounded-t-lg p-[4px]">
@@ -82,7 +84,7 @@ const Project = ({ proj  }) => {
         )}
         </div>
     </div>
-    
+    </Suspense>
   );
 };
 
