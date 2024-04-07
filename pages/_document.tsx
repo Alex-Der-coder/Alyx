@@ -23,6 +23,7 @@ class MyDocument extends Document {
             content="See pictures from Next.js Conf and the After Party."
           />
            <meta name="description" content="Explore my portfolio showcasing innovative JavaScript/React applications, crafted to deliver seamless user experiences and cutting-edge functionalities." />
+           <meta name="google-site-verification" content="CRtevFl6lPGgVDHwPqg65cz5nBCSRlPtB9eSuArYMT8" />
         </Head>
         <body>
           <Main />
