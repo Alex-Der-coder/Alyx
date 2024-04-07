@@ -5,8 +5,7 @@ import Footer from "../components/Footer";
 import WhoIAm from "../components/WhoIAm"
 import Techno from "../components/Techno"
 import AccordionDemo  from "../components/AccordionDemo";
-import  SkeletonCard  from '../components/SkeletonCard';
-import { Suspense } from 'react';
+
 
 export default function Portefolio() {
 

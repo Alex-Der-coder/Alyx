@@ -65,7 +65,10 @@
     --ring: 216 12.2% 83.9%;
   }
 }
- 
+ body {
+  min-width: 1360px;
+}
+
 @layer base {
   * {
     @apply border-border;
