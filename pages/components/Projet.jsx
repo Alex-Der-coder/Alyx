@@ -72,11 +72,11 @@ const Project = ({ proj  }) => {
         </div>
         </div>
         {proj && (
-        <div className="absolute flex flex-col justify-between w-[100%] h-[355px] max-[640px]:text-center  " style={{transform: 'rotateY(180deg)' , WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
+        <div className="absolute flex flex-col justify-between w-[100%] text-center h-[355px] max-[640px]:text-center  " style={{transform: 'rotateY(180deg)' , WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
           <h2 >Contexte :</h2>
           <p>{proj.contexte}</p>
           <p>Voir le repos Git <a href={proj.repos} aria-label="Lien du projet présenter"><FontAwesomeIcon icon={faCodeFork} fade style={{color: "#1e3050",}} /></a></p>
-          <button className="button_flip  hover:bg-[#fff] hover:text-[#148672] max-[640px]:w-[45%] max-[640px]:ml-[26%]" onClick={handleButtonClick}>
+          <button className="button_flip  hover:bg-[#fff] hover:text-[#148672] w-[32%] items-center max-[640px]:w-[45%] max-[640px]:ml-[26%]" onClick={handleButtonClick}>
            <p>Read More</p><span aria-hidden="true">
         →
       </span></button>
