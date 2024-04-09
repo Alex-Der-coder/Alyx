@@ -32,7 +32,7 @@ const Techno = ({ data }) => {
   
 
   return (
-    <section className=" max-[640px]:h-[338vh] max-[640px]:mt-[75%]  " id="projects">
+    <section className=" max-[640px]:h-[338vh] max-[640px]:mt-[75%] max-[640px]:max-w-[23%]    " id="projects">
       <div className="mt-[2%] text-center bg-gradient-to-r from-yellow-300 to-red-700 bg-clip-text text-transparent">
         <h1>Mes Projets</h1>
       </div>
