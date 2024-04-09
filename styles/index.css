@@ -177,46 +177,6 @@
   left: 40%;
 }
 
-.projectsSection {
-  
-  .projectList {
-    .projectGitLink {
-    }
-    .project {
-      .projectImg {
-        object-fit: cover;
-        border-bottom: 1px solid #dedede;
-      }
-      
-      .projectTitle {
-        border-radius: 10px 10px 0px 0px;
-        margin: 0px;
-        padding: 4px;
-        color: #fff;
-        background:linear-gradient(90deg,#833ab4,#fd1d1d 50%,#fcb045);
-        cursor: initial;
-        display: flex;
-        justify-content: space-around;
-        font-weight: bold;
-        font-size: 20px;
-      }
-   
-      .projectTechno {
-        display: flex;
-        justify-content: center;
-        padding-top: 15px;
-        margin-top: -5%;
-        gap: 15px;
-        .technos {
-          width: 20px;
-          margin: 0px 4px;
-        }
-      }
-    }
-  }
-}
-
-
 .not_active {
   border-radius: 10%;
   border: none;
