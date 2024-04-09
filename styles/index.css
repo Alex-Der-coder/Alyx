@@ -242,14 +242,3 @@ display: flex;
 .pagination .next {
   display: none;
 }
-
-
-.col-row {
-padding : 2rem;
-  ul  {
-  padding-right:unset;
-}
-  li {
-  padding-bottom: 0.55rem;
-  }
-}
