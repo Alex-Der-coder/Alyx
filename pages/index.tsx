@@ -3,7 +3,7 @@ import Footer from './components/Footer'
 import Link from "next/link"
 import { buttonVariants } from "../@/components/ui/button"
 import { cn } from "../@/lib/utils"
-
+import { motion } from "framer-motion";
 
 
 export const getStaticProps = async () => {
@@ -20,6 +20,7 @@ export default function Home() {
     <NavigationMenu />
       <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32  ">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center ">
+        <motion.button whileTap={{ scale: 0.85 }}>
           <Link
             href="https://www.linkedin.com/in/alexandre-de-roeck-%F0%9F%9A%80-660217135/"
             className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium"
@@ -27,6 +28,8 @@ export default function Home() {
           >
             Follow along on Linkedin
           </Link>
+          </motion.button>
+
           <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl max-[645px]:mt-[40%] " >
             An example app built using Next.js 14 server components.
           </h1>
