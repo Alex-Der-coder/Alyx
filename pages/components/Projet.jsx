@@ -31,7 +31,7 @@ const Project = ({ proj  }) => {
           )}
             {proj && (
           <a href={proj.link} >
-            <div className="flex m-[15px] justify-center">
+            <div className="flex m-[10px] justify-center">
               {showQRCode ? (
                 <QRCode size={250} value={proj.link} />
               ) : (
@@ -47,7 +47,7 @@ const Project = ({ proj  }) => {
           </a>
             )}
              {proj && (
-          <p className="p-[2px] text-[14px] text-center h-[50px] max-[640px]:text-[12px] max-[640px]:mt-[10px] max-[640px]:mb-[10px] ">{proj.description}</p>
+          <p className="p-[2px] text-[13px] text-center h-[50px] max-[640px]:text-[12px] max-[640px]:mt-[10px] max-[640px]:mb-[10px] ">{proj.description}</p>
           )}
           
           <div className="justify-center pt-[15px] mt-[-5%] gap-[15px]   " style={{ display: showQRCode  ? 'none' : 'flex' }}>
@@ -55,7 +55,7 @@ const Project = ({ proj  }) => {
             <img
               key={index}
               src={tech}
-              className="w-[20px] mx-[4px] max-[640px]:hidden "
+              className="w-[25px] mx-[4px] max-[640px]:hidden "
               loading="lazy"
               fetchpriority="low"
               alt={`Technologie used in this project: ${tech
@@ -75,7 +75,7 @@ const Project = ({ proj  }) => {
           <h2 >Contexte :</h2>
           <p>{proj.contexte}</p>
           <p>Voir le repos Git <a href={proj.repos} aria-label="Lien du projet présenter"><FontAwesomeIcon icon={faCodeFork} fade style={{color: "#1e3050",}} /></a></p>
-          <button className="button_flip  hover:bg-[#fff] hover:text-[#148672] w-[32%] self-center max-[640px]:w-[45%] max-[640px]:ml-[26%]" onClick={handleButtonClick}>
+          <button className="button_flip  hover:bg-[#fff] hover:text-[#148672] w-[33%] self-center max-[640px]:w-[45%] max-[640px]:ml-[26%]" onClick={handleButtonClick}>
            <p>Read More</p><span aria-hidden="true">
         →
       </span></button>

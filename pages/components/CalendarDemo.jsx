@@ -25,4 +25,11 @@ class CalendarDemo extends Component {
   }
 }
 
+export const getStaticProps = async () => {
+  return {
+    props: {}, // Return an empty object since there's no dynamic data
+    revalidate: 3600 // Add revalidation time if needed
+  };
+};
+
 export default CalendarDemo;

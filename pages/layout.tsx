@@ -12,6 +12,16 @@ export default function RootLayout({ children } : RootLayoutProps ) {
   const handleAnimationComplete = () => {
     setHideSpinner(true);
   };
+
+  const handleAnimationStart = () => {
+    document.body.style.overflow = 'hidden'; 
+  }
+  
+  const handleAnimationcontainerComplete = () => {
+    document.body.style.overflow = ''; 
+  }
+
+  
   return (
 
         <ThemeProvider
@@ -22,7 +32,7 @@ export default function RootLayout({ children } : RootLayoutProps ) {
         >
           <div
         style={{
-          position: "relative", // Ajout de position relative pour permettre le positionnement absolu de l'animation
+          position: "relative",
           width: "100vw",
           height: "100vh",
      
@@ -47,7 +57,12 @@ export default function RootLayout({ children } : RootLayoutProps ) {
                 duration: 4,
                 repeatType: "reverse"
             }}
-            onAnimationComplete={handleAnimationComplete}
+            onAnimationStart={handleAnimationStart}
+            onAnimationComplete={() => {
+              handleAnimationComplete();
+              handleAnimationcontainerComplete();
+            }}
+
         >
             <motion.div
                 style={{
