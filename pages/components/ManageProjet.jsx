@@ -16,17 +16,31 @@ import React, { useState } from 'react';
       
         const handleChange = (e) => {
           const { name, value } = e.target;
+          let updatedValue = value;
+        
+          // Vérifiez si le champ modifié est 'techno'
+          if (name === 'techno') {
+            // Si la valeur est une chaîne, séparez-la en un tableau d'URLs
+            if (typeof value === 'string') {
+              updatedValue = value.split(',').map(item => item.trim());
+            }
+            // Sinon, la valeur est déjà un tableau, pas besoin de traitement supplémentaire
+          }
+        
           setFormData(prevState => ({
             ...prevState,
-            [name]: value
+            [name]: updatedValue
           }));
         };
+        
       
         const handleSubmit = async (e) => {
           e.preventDefault();
           try {
-            const response = await fetch('https://localhost:3000/api/projet_add', {
-              method: 'POST',
+            console.log("Form data:", formData);
+
+            const response = await fetch('http://localhost:3000/api/projet_add', {
+              method: 'PUT',
               headers: {
                 'Content-Type': 'application/json'
               },
