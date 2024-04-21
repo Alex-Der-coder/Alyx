@@ -1,7 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Document, {  Html, Main, NextScript } from 'next/document'
-import NavigationMenuDemo  from "../components/NavigationMenuDemo"
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -51,7 +49,6 @@ const PhotoView: NextPage<{ images: ImageProps[] }> = ({ images }) => {
           content="https://nextjsconf-pics.vercel.app/og-image.png"
         />
       </Head>
-      <NavigationMenuDemo  />
       <main className="mx-auto max-w-[1960px] p-4 ">
       
         {photoId && (
@@ -115,36 +112,6 @@ const PhotoView: NextPage<{ images: ImageProps[] }> = ({ images }) => {
           ))}
         </div>
       </main>
-      <footer className="p-6 text-center text-white/80 sm:p-12 bg-black antialiased">
-        Thank you to{' '}
-        <a
-          href="https://edelsonphotography.com/"
-          target="_blank"
-          className="font-semibold hover:text-white"
-          rel="noreferrer"
-        >
-          Josh Edelson
-        </a>
-        ,{' '}
-        <a
-          href="https://www.newrevmedia.com/"
-          target="_blank"
-          className="font-semibold hover:text-white"
-          rel="noreferrer"
-        >
-          Jenny Morgan
-        </a>
-        , and{' '}
-        <a
-          href="https://www.garysextonphotography.com/"
-          target="_blank"
-          className="font-semibold hover:text-white"
-          rel="noreferrer"
-        >
-          Gary Sexton
-        </a>{' '}
-        for the Vercel template project.
-      </footer>
     </>
   )
   

@@ -1,7 +1,5 @@
 
 import React , { useState,useEffect} from "react";
-import NavigationMenuDemo  from '../components/NavigationMenuDemo'
-import Footer from "../components/Footer";
 import WhoIAm from "../components/WhoIAm"
 import Techno from "../components/Techno"
 import AccordionDemo  from "../components/AccordionDemo";
@@ -33,12 +31,9 @@ export default function Portefolio() {
 
   return (
     <>
-      <NavigationMenuDemo  />
       <WhoIAm />
         <Techno data={data} />
       <AccordionDemo />
-      <Footer />
-
     </>
   );
 }

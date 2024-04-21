@@ -10,11 +10,11 @@ export default async (req, res) => {
             const users = await db
                 .collection("Portefolio")
                 .find({})
-                .sort({ metacritic: -1 })
                 .toArray();
 
+                
             res.json(users);
-        } // Ajout de cette accolade manquante
+        } 
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });

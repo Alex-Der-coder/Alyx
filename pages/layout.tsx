@@ -1,8 +1,8 @@
 import { ThemeProvider } from "../@/components/ui/theme-provider"
 import { motion } from "framer-motion";
 import { useState } from "react";
-
-
+import NavigationMenu from "./components/NavigationMenuDemo";
+import Footer from "./components/Footer";
 type RootLayoutProps =  any
 
 export default function RootLayout({ children } : RootLayoutProps ) {
@@ -79,7 +79,9 @@ export default function RootLayout({ children } : RootLayoutProps ) {
             />
 
             </motion.div>
+            <NavigationMenu />
           {children}
+          <Footer />
           </div>
         </ThemeProvider>
 

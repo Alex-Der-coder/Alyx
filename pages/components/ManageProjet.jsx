@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 
 
     const ManageProjet = () => {
@@ -56,8 +56,32 @@ import React, { useState } from 'react';
             console.error("Failed to add object:", error);
           }
         };
+
+        const [data, setData] = useState(null);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/projet');
+        
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const result = await response.json();
+        setData(result);
+        console.log(result);
+        setFormData(prevState => ({ ...prevState, id: result.length + 1 }));
+      } catch (error) {
+      }
+    };
+
+    fetchData();
+  }, []); 
+
+
   return (
-    <div>
+    <div className='w-full h-full grid justify-center content-center'>
       <h2>Add New Project</h2>
       <form onSubmit={handleSubmit}>
         <label>
@@ -81,7 +105,7 @@ import React, { useState } from 'react';
         </label>
         <br />
         <label>
-          Technologies (comma separated):
+          Technologies :
           <input type="text" name="techno" value={formData.techno} onChange={handleChange} />
         </label>
         <br />
