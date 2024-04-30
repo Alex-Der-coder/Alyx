@@ -14,17 +14,15 @@ import React, { useState , useEffect } from 'react';
           contexte: ''
         });
       
-        const handleChange = (e) => {
+        const handleChange = (e: { target: { name: any; value: any; }; }) => {
           const { name, value } = e.target;
           let updatedValue = value;
-        
-          // Vérifiez si le champ modifié est 'techno'
+
           if (name === 'techno') {
-            // Si la valeur est une chaîne, séparez-la en un tableau d'URLs
             if (typeof value === 'string') {
               updatedValue = value.split(',').map(item => item.trim());
             }
-            // Sinon, la valeur est déjà un tableau, pas besoin de traitement supplémentaire
+          // The value of the "techno" field is retrieved and then placed into an array.
           }
         
           setFormData(prevState => ({
@@ -34,7 +32,7 @@ import React, { useState , useEffect } from 'react';
         };
         
       
-        const handleSubmit = async (e) => {
+        const handleSubmit = async (e: { preventDefault: () => void; }) => {
           e.preventDefault();
           try {
             console.log("Form data:", formData);
@@ -82,8 +80,8 @@ import React, { useState , useEffect } from 'react';
 
   return (
     <div className='w-full h-full flex justify-center content-center items-center'>
-      <img src="https://res.cloudinary.com/df1z0o9nt/image/upload/s--NZ-_7Whm--/f_webp/q_auto:good/Projet_Openclassroom/papillon-fleurs_ysyssc.jpg" alt=""className="w-full object-cover max-h-[90%]" loading="lazy" fetchpriority="low" />
-      <form className='flex flex-col justify-between h-full w-full bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 absolute w-[37%] h-[70%]' onSubmit={handleSubmit}>
+      <img src="https://res.cloudinary.com/df1z0o9nt/image/upload/s--NZ-_7Whm--/f_webp/q_auto:good/Projet_Openclassroom/papillon-fleurs_ysyssc.jpg" alt="royalty-free image" className="w-full object-cover min-[320px]:h-full " loading="lazy"  />
+      <form className='flex flex-col justify-around items-center bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100 absolute w-[37%] h-[70%] min-[320px]:w-auto  max-[970px]:top-[25%]' onSubmit={handleSubmit}>
       <h1>Add New Project</h1>
         <label className='flex justify-between'>
          <h2>Name:</h2> 
@@ -92,7 +90,7 @@ import React, { useState , useEffect } from 'react';
  
         <label  className='flex justify-between'>
             <h2>ID:</h2>
-              <input type="number" name="id" value={formData.id} onChange={handleChange} />
+              <input type="number" name="id" value={formData.id} onChange={handleChange} disabled />
         </label>
 
         <label  className='flex justify-between'>
@@ -125,7 +123,7 @@ import React, { useState , useEffect } from 'react';
             <textarea name="contexte" value={formData.contexte} onChange={handleChange} />
         </label>
 
-        <button type="submit">Add Project</button>
+        <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2" type="submit">Add Project</button>
       </form>
     </div>
   );

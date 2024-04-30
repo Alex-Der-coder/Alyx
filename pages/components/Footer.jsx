@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return(
-        <footer className='flex flex-row justify-between text-white bg-black ml-[-1%] pl-[2%] mb-[-1%] mr-[-0.5%]'>
+        <footer  role="contentinfo" className='flex flex-row justify-between text-white bg-black ml-[-1%] pl-[2%] mb-[-1%] mr-[-0.5%]'>
             <div className='flex max-[640px]:flex-wrap max-[640px]:flex-wrap  max-[640px]:flex-col-reverse ' >
             <div>
                 <div className='col-row p-[2rem]'>

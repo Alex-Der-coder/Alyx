@@ -11,8 +11,6 @@ export default async (req, res) => {
                 .collection("Portefolio")
                 .find({})
                 .toArray();
-
-                
             res.json(users);
         } 
     } catch (error) {

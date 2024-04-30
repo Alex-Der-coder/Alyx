@@ -84,4 +84,4 @@ Alternatively, you can deploy using our template by clicking on the Deploy butto
 
 #### Command for CLI Tailwind
 
-npx tailwindcss -i /Users/namster_alex/alyx/styles/index.css -o /Users/namster_alex/alyx/styles/output.css --watch
+npx tailwindcss -i /Users/namster_alex/alyx/styles/index.css -o /Users/namster_alex/alyx/styles/output.css --watch --minify
