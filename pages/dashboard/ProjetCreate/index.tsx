@@ -1,7 +1,12 @@
 import React, { useState , useEffect } from 'react';
-
-
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
     const ManageProjet = () => {
+
+      const [modalMessage, setModalMessage] = useState("");
+      const [open, setOpen] = useState(false);
+      const onOpenModal = () => setOpen(true);
+      const onCloseModal = () => setOpen(false);
 
         const [formData, setFormData] = useState({
           name: '',
@@ -45,12 +50,25 @@ import React, { useState , useEffect } from 'react';
               body: JSON.stringify(formData)
             });
             if (response.ok) {
+              setModalMessage("Projet créer avec succès");
               console.log("Object added successfully");
-              // Réinitialisez le formulaire ici si nécessaire
             } else {
+              setModalMessage("Echec de création du projet");
               console.error("Failed to add object:", response.statusText);
-            }
-          } catch (error) {
+          }
+          setFormData({
+            id: '',
+            name: '',
+            cover: '',
+            description: '',
+            techno: [],
+            link: '',
+            repos: '',
+            contexte: ''
+        });
+          setOpen(true);
+
+        } catch (error) {
             console.error("Failed to add object:", error);
           }
         };
@@ -122,8 +140,12 @@ import React, { useState , useEffect } from 'react';
           <h2>Context: </h2> 
             <textarea name="contexte" value={formData.contexte} onChange={handleChange} />
         </label>
-
+      <div>
         <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2" type="submit">Add Project</button>
+        <Modal open={open} onClose={onCloseModal} center>
+        <h2 className="text-black p-[30px]">{modalMessage}</h2>
+            </Modal>
+      </div>
       </form>
     </div>
   );

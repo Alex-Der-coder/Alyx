@@ -1,8 +1,16 @@
 
 import React from "react"
 import { useState} from 'react'
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
 
 export default function Dashboard() {
+
+    const [modalMessage, setModalMessage] = useState("");
+    const [open, setOpen] = useState(false);
+
+    const onOpenModal = () => setOpen(true);
+    const onCloseModal = () => setOpen(false);
     
     const handleConfirmationChange = (e: { target: { checked: any; }; }) => {
         const { checked } = e.target;
@@ -29,13 +37,20 @@ const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     try {
         // Envoi des données au backend pour la mise à jour du projet
-        const response = await fetch('http://localhost:3000/api/project_delete', {
+        const response = await fetch('https://portefoliov3-beta.vercel.app/api/project_delete', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData)
         });
+        if (response.ok) {
+            setModalMessage("Projet supprimé avec succès");
+        } else {
+            setModalMessage("Projet non trouvé");
+        }
+        setOpen(true);
+
         const data = await response.json();
         console.log(data);
         // Réinitialisation du formulaire après la soumission réussie 
@@ -69,7 +84,7 @@ return (
                 </label>
                 <span className="ml-2 ">Je confirme la suppression du projet</span>
             </div>
-
+            <div>
             <button
                 className={`inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 disabled:opacity-50 ${!formData.confirmation && 'disabled:opacity-50 bg-gray-300 '} ${formData.confirmation && 'bg-primary text-primary-foreground shadow hover:bg-primary/90'}`}
                 type="submit"
@@ -77,6 +92,10 @@ return (
             >
                 Supprimer le projet
             </button>
+            <Modal open={open} onClose={onCloseModal} center>
+        <h2 className="text-black p-[30px]">{modalMessage}</h2>
+            </Modal>
+            </div>
         </form>
     </div>
 );

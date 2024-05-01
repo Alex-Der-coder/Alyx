@@ -27,7 +27,9 @@ export default async (req, res) => {
                 console.log("Résultat de la recherche  :", projectToUpdate);
 
                 if (!projectToUpdate) {
+
                     return res.status(404).json({ error: "Project not found" });
+    
                 }
                 
                 console.log("Identifiant unique du projet :", projectToUpdate._id);
