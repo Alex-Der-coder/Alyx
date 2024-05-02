@@ -8,7 +8,7 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta
             name="description"
-            content="See pictures from Next.js Conf and the After Party."
+            content="Explore my portfolio showcasing innovative JavaScript/React applications, crafted to deliver seamless user experiences and cutting-edge functionalities."
           />
           <meta property="og:site_name" content="nextjsconf-pics.vercel.app" />
           <meta
@@ -22,7 +22,6 @@ class MyDocument extends Document {
             name="twitter:description"
             content="See pictures from Next.js Conf and the After Party."
           />
-           <meta name="description" content="Explore my portfolio showcasing innovative JavaScript/React applications, crafted to deliver seamless user experiences and cutting-edge functionalities." />
            <meta name="google-site-verification" content="CRtevFl6lPGgVDHwPqg65cz5nBCSRlPtB9eSuArYMT8" />
         </Head>
         <body>
