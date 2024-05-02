@@ -42,7 +42,7 @@ import 'react-responsive-modal/styles.css';
           try {
             console.log("Form data:", formData);
 
-            const response = await fetch('http://localhost:3000/api/projet_add', {
+            const response = await fetch('https://portefoliov3-beta.vercel.app/api/projet_add', {
               method: 'PUT',
               headers: {
                 'Content-Type': 'application/json'
@@ -143,8 +143,8 @@ import 'react-responsive-modal/styles.css';
       <div>
         <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2" type="submit">Add Project</button>
         <Modal open={open} onClose={onCloseModal} center>
-        <h2 className="text-black p-[30px]">{modalMessage}</h2>
-            </Modal>
+          <h2 className="text-black p-[30px]">{modalMessage}</h2>
+        </Modal>
       </div>
       </form>
     </div>
