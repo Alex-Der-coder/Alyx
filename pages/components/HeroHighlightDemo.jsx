@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "../../@/components/ui/hero-highlight";
 
-export  function HeroHighlightDemo() {
+export default function HeroHighlightDemo() {
   return (
     <HeroHighlight>
       <motion.h1 className="font-heading text-3xl   lg:text-7xl max-[730px]:mt-[40%] " 
