@@ -7,7 +7,7 @@ import {
 
 export default function AccordionDemo() {
   return (
-    <aside id="faq"  className="flex flex-col justify-around h-[15rem] max-[640px]:flex-wrap  max-[375px]:mt-[45%]  max-[485px]:mt-[65%] max-[640px]:mt-[85%]  max-[640px]:mt-[65%] max-[640px]:h-[30rem] content-center   ">
+    <aside id="faq"  className="flex flex-col justify-around h-[15rem] max-[640px]:flex-wrap  max-[375px]:mt-[45%]  max-[485px]:mt-[65%] max-[640px]:mt-[85%]  max-[640px]:mt-[65%] max-[640px]:h-[30rem] content-center min-[970px]:flex-row   ">
     <Accordion type="single" collapsible className="w-[20%] flex flex-wrap flex-col max-[640px]:w-[63%] max-[640px]:h-[14rem]" >
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
