@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQrcode } from '@fortawesome/free-solid-svg-icons';
 import { faCodeFork } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image'
 import QRCode from 'qrcode.react';
 
 
@@ -20,11 +21,11 @@ const Project = ({ proj  }) => {
 
   return (
 
-    <div  className="shadow-[-4px_1px_12px_10px_rgba(0,0,0,0.35)] flex flex-col justify-between my-[10px] mx-[40px] border-solid border-2 border-white rounded-[10px] max-w-[23rem] w-[28%] h-[23rem] duration-300 hover:scale-[1.1] max-[640px]:w-[100%] max-[640px]:mx-[10px] max-[640px]:h-[25rem] " key={proj && proj.id}>
+    <div  className="shadow-[-4px_1px_12px_10px_rgba(0,0,0,0.35)] flex flex-col justify-between max-[970px]:my-[12%] mx-[40px] border-solid border-2 border-white rounded-[10px] max-w-[23rem] w-[28%] h-[23rem] duration-300 hover:scale-[1.1] max-[970px]:w-[80%] max-[640px]:mx-[10px] max-[640px]:h-[25rem] " key={proj && proj.id}>
       <div  style={isFlipped ? { transform: 'rotateY(180deg)', transformStyle: 'preserve-3d' , transition: 'transform .6s'  } : { transformStyle: 'preserve-3d', transition: 'transform .6s'  }} >
         <div className="rotate-0 absolute w-[100%] h-[100%]" style={{WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
             {proj && (
-        <h2 data-testid="Titleprojet" className="bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] via-50% to-[#fcb045] items-center rounded-t-lg p-[4px] flex justify-around font-bold text-xl ">
+        <h2 data-testid="Titleprojet" className="bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] via-50% to-[#fcb045] items-center rounded-t-lg p-[4px] flex justify-around font-bold text-xl text-center ">
            {proj.name}
             <FontAwesomeIcon  onClick={toggleQRCode} icon={faQrcode} className="fa-fade" />
           </h2>
@@ -35,12 +36,11 @@ const Project = ({ proj  }) => {
               {showQRCode ? (
                 <QRCode size={250} value={proj.link} />
               ) : (
-                <img
+                <Image
                   src={`${proj.cover}`}
                   alt={`${proj.name} - ${proj.description}`}
+                  width={500} height={500}
                   className="w-[85%] h-[215px] "
-                  loading="lazy"
-                  fetchpriority="low"
                 />
               )}
             </div>
@@ -52,12 +52,11 @@ const Project = ({ proj  }) => {
           
           <div className="justify-center pt-[15px] mt-[-5%] gap-[15px]   " style={{ display: showQRCode  ? 'none' : 'flex' }}>
           {proj && proj.techno && proj.techno.map((tech, index) => (
-            <img
+            <Image
               key={index}
               src={tech}
+              width={25} height={10}
               className="w-[25px] mx-[4px] max-[640px]:hidden "
-              loading="lazy"
-              fetchpriority="low"
               alt={`Technologie used in this project: ${tech
                 .split('/')
                 .pop()
