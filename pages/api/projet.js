@@ -12,6 +12,7 @@ export default async (req, res) => {
                 .find({})
                 .toArray();
             res.json(users);
+
         } 
     } catch (error) {
         console.error(error);

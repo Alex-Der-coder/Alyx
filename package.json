@@ -29,13 +29,14 @@
     "crypto": "^1.0.1",
     "date-fns": "^3.3.1",
     "framer-motion": "^7.10.3",
+    "graceful-fs": "^4.2.11",
     "imagemin": "^8.0.1",
     "imagemin-jpegtran": "^7.0.0",
     "install": "^0.13.0",
     "mini-svg-data-uri": "^1.4.4",
     "mongodb": "^4.17.2",
     "mongoose": "^8.2.1",
-    "next": "latest",
+    "next": "^14.2.3",
     "next-themes": "^0.2.1",
     "npm": "^10.5.0",
     "qrcode.react": "^3.1.0",
@@ -47,8 +48,10 @@
     "react-responsive-modal": "^6.4.2",
     "react-swipeable": "^7.0.1",
     "react-use-keypress": "^1.3.1",
+    "semver-regex": "^4.0.5",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "trim-newlines": "^5.0.0"
   },
   "devDependencies": {
     "@types/imagemin": "^8.0.5",

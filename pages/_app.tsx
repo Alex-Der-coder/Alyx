@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
 import '../styles/output.css'
+
 import Layout from './layout'
 import Head from 'next/head'
 
