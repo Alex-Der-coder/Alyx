@@ -1,33 +1,11 @@
 
-import React , { useState,useEffect} from "react";
+import React from "react";
 import WhoIAm from "../components/WhoIAm"
 import Techno from "../components/Techno"
 import AccordionDemo  from "../components/AccordionDemo";
 
 
-export default function Portefolio() {
-
-  const [data, setData] = useState(null);
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://portefoliov3-beta.vercel.app/api/projet');
-        
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-      }
-    };
-
-    fetchData();
-  }, []); 
-
- 
+export default  function Portefolio ({ data}: any ) {
 
   return (
     <>
@@ -37,3 +15,25 @@ export default function Portefolio() {
     </>
   );
 }
+
+export async function getServerSideProps() {
+  try {
+    const res = await fetch('https://portefoliov3-beta.vercel.app/api/projet');
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    const data = await res.json();
+    return {
+      props: { data },
+    };
+  } catch (error) {
+    let errorMessage = 'An unknown error occurred';
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    }
+    return {
+      props: { error: errorMessage },
+    };
+  }
+}
+
