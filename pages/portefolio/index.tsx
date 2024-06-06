@@ -14,9 +14,11 @@ export default  function Portefolio ({ data}: any ) {
       <AccordionDemo />
     </>
   );
+
+  
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const res = await fetch('https://portefoliov3-beta.vercel.app/api/projet');
     if (!res.ok) {
@@ -25,6 +27,7 @@ export async function getServerSideProps() {
     const data = await res.json();
     return {
       props: { data },
+      revalidate: 3600, // Revalidate data every 3600 seconds (1 hour)
     };
   } catch (error) {
     let errorMessage = 'An unknown error occurred';
