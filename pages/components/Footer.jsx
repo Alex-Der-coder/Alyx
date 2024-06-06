@@ -1,4 +1,5 @@
 import React from 'react';
+import { LinkPreview } from "../../@/components/link-preview";
 
 const Footer = () => {
     return(
@@ -8,11 +9,11 @@ const Footer = () => {
                 <div className='col-row p-[2rem]'>
                     <h3 className=' bg-gradient-to-r from-yellow-300 to-red-700 bg-clip-text text-transparent'>Lien Utile</h3>
                     <ul>
-                        <li className='pb-[0.55rem]' ><a className='list-none text-white no-underline' href="https://uicolors.app/create">Color Generator</a></li>
-                        <li className='pb-[0.55rem]'><a className='list-none text-white no-underline' href="https://animista.net/">Animasta</a></li>
-                        <li className='pb-[0.55rem]' ><a className='list-none text-white no-underline' href="https://www.canva.com/">Canva</a></li>
-                        <li className='pb-[0.55rem]' ><a className='list-none text-white no-underline' href="https://fontawesome.com/">FontAwesome</a></li>
-                        <li className='pb-[0.55rem]'><a className='list-none text-white no-underline' href="https://www.svgrepo.com/">SvGPro</a></li>
+                        <li className='pb-[0.55rem]' ><LinkPreview className='list-none text-white no-underline' url="https://uicolors.app/create">Color Generator</LinkPreview></li>
+                        <li className='pb-[0.55rem]'><LinkPreview  className='list-none text-white no-underline' url="https://animista.net/">Animasta</LinkPreview ></li>
+                        <li className='pb-[0.55rem]' ><LinkPreview  className='list-none text-white no-underline' url="https://www.canva.com/">Canva</LinkPreview ></li>
+                        <li className='pb-[0.55rem]' ><LinkPreview  className='list-none text-white no-underline' url="https://fontawesome.com/">FontAwesome</LinkPreview ></li>
+                        <li className='pb-[0.55rem]'><LinkPreview  className='list-none text-white no-underline' url="https://www.svgrepo.com/">SvGPro</LinkPreview ></li>
                     </ul>
                     <p>© Portfolio de Alexandre De Roeck 2024</p>
                 </div>
@@ -22,11 +23,11 @@ const Footer = () => {
                 <div className='col-row p-[2rem]'>
                     <h3  className=' bg-gradient-to-r from-yellow-300 to-red-700 bg-clip-text text-transparent'>Lien Utile</h3>
                     <ul>
-                        <li className='pb-[0.55rem]'><a className='list-none text-white no-underline' href="https://www.figma.com">Figma</a></li>
-                        <li className='pb-[0.55rem]' ><a className='list-none text-white no-underline' href="https://www.w3schools.com/">W3schools</a></li>
-                        <li className='pb-[0.55rem]'><a className='list-none text-white no-underline' href="https://validator.w3.org/">W3C Validator</a></li>
-                        <li className='pb-[0.55rem]'><a className='list-none text-white no-underline' href="https://github.com/">Github</a></li>
-                        <li className='pb-[0.55rem]'><a className='list-none text-white no-underline' href="https://vercel.com/">Vercel</a></li>
+                        <li className='pb-[0.55rem]'><LinkPreview  className='list-none text-white no-underline' url="https://www.figma.com">Figma</LinkPreview ></li>
+                        <li className='pb-[0.55rem]' ><LinkPreview  className='list-none text-white no-underline' url="https://www.w3schools.com/">W3schools</LinkPreview ></li>
+                        <li className='pb-[0.55rem]'><LinkPreview  className='list-none text-white no-underline' url="https://validator.w3.org/">W3C Validator</LinkPreview ></li>
+                        <li className='pb-[0.55rem]'><LinkPreview  className='list-none text-white no-underline' url="https://github.com/">Github</LinkPreview ></li>
+                        <li className='pb-[0.55rem]'><LinkPreview  className='list-none text-white no-underline' url="https://vercel.com/">Vercel</LinkPreview ></li>
                     </ul>
                 </div>
             </div>
@@ -34,19 +35,22 @@ const Footer = () => {
             <div className='col-row p-[2rem]'>
                     <h3  className=' bg-gradient-to-r from-yellow-300 to-red-700 bg-clip-text text-transparent'>Lien Utile</h3>
                     <ul>
-                        <li className='pb-[0.55rem]'><a className='list-none text-white no-underline' href="https://uiverse.io">Uiverse</a></li>
-                        <li className='pb-[0.55rem]'><a className='list-none text-white no-underline' href="https://codepen.io/">Code Pen</a></li>
-                        <li className='pb-[0.55rem]'><a className='list-none text-white no-underline' href="https://www.skeleton.dev/">Skeleton dev</a></li>
-                        <li className='pb-[0.55rem]' ><a className='list-none text-white no-underline' href="https://jsben.ch/">JSBench</a></li>
-                        <li className='pb-[0.55rem]' ><a className='list-none text-white no-underline' href="https://www.minifier.org/">Minifier code</a></li>
+                        <li className='pb-[0.55rem]'><LinkPreview  className='list-none text-white no-underline' url="https://uiverse.io">Uiverse</LinkPreview ></li>
+                        <li className='pb-[0.55rem]'><LinkPreview  className='list-none text-white no-underline' url="https://codepen.io/">Code Pen</LinkPreview ></li>
+                        <li className='pb-[0.55rem]'><LinkPreview  className='list-none text-white no-underline' url="https://www.skeleton.dev/">Skeleton dev</LinkPreview ></li>
+                        <li className='pb-[0.55rem]' ><LinkPreview  className='list-none text-white no-underline' url="https://jsben.ch/">JSBench</LinkPreview ></li>
+                        <li className='pb-[0.55rem]' ><LinkPreview  className='list-none text-white no-underline' url="https://www.minifier.org/">Minifier code</LinkPreview ></li>
                     </ul>
                 </div>
             </div>
             </div>
+           
         </footer>
     )
 }
 
+
+  
 export const getStaticProps = async () => {
     return {
       props: {}, // Return an empty object since there's no dynamic data
