@@ -5,7 +5,7 @@ import { cn } from "../@/lib/utils"
 import   HeroHighlightDemo  from "./components/HeroHighlightDemo"
 import { Meteors } from "../@/components/ui/meteors"
 import { LinkPreview } from "../@/components/link-preview"
-
+require('dotenv').config();
 /*
 export const getStaticProps = async () => {
   return {

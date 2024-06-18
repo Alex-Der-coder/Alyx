@@ -3,13 +3,16 @@ import React from "react";
 import WhoIAm from "../components/WhoIAm"
 import Techno from "../components/Techno"
 import AccordionDemo  from "../components/AccordionDemo";
+import WhatIvebeenworking from "../components/WhatIvebeenworking"
 
 
-export default  function Portefolio ({ data}: any ) {
+export default  function Portefolio ({ data , datarepo}: any ) {
+  
 
   return (
     <>
       <WhoIAm />
+        <WhatIvebeenworking  />
         <Techno data={data} />
       <AccordionDemo />
     </>
