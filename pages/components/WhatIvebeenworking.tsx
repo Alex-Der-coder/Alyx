@@ -18,7 +18,7 @@ const WhatIvebeenworking = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const token = "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";
+  const token = process.env.GITHUB_TOKEN;
   console.log(token);
   
   const getRepos = async ({
