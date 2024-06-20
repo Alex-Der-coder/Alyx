@@ -24,7 +24,7 @@ export const LinkPreview = ({
   const width = 200;
   const height = 125;
   const quality = 50;
-  const layout = "fixed";
+  const style = "fixed";
 
   const params = encode({
     url,
@@ -69,7 +69,7 @@ export const LinkPreview = ({
             width={width}
             height={height}
             quality={quality}
-            layout={layout}
+            layout={style}
             priority={true}
             alt="hidden image"
           />
@@ -127,7 +127,7 @@ export const LinkPreview = ({
                     width={width}
                     height={height}
                     quality={quality}
-                    layout={layout}
+                    layout={style}
                     priority={true}
                     className="rounded-lg"
                     alt="preview image"
