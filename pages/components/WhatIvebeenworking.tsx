@@ -19,7 +19,7 @@ const WhatIvebeenworking = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const token = process.env.GITHUB_TOKEN;
-  console.log(token);
+
   
   const getRepos = async ({
     username = 'Alex-Der-coder',
