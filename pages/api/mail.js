@@ -1,6 +1,6 @@
 const RESEND_API_KEY = 're_Hcr1ycvk_6NyrmKFYuDkCfKRNvp5WPUzz';
 
-export async function POST() {
+export default async function POST() {
   console.log('Preparing to send request to Resend API');
 
   const res = await fetch('https://api.resend.com/emails', {
@@ -23,9 +23,9 @@ export async function POST() {
   if (res.ok) {
     const data = await res.json();
     console.log('Response data:', data);
-    return Response.json(data);
+    return new Response(JSON.stringify(data), { status: 200, headers: { 'Content-Type': 'application/json' } });
   } else {
     console.error('Error response:', res);
-    throw new Error(`Request failed with status ${res.status} - ${res.statusText}`);
+    return new Response(`Request failed with status ${res.status} - ${res.statusText}`, { status: res.status });
   }
 }
