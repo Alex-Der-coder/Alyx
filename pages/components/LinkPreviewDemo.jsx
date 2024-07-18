@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { LinkPreview } from "../../@/components/link-preview";
+import { LinkPreview } from "../../@/components/ui/link-preview";
 
 function LinkPreviewDemo() {
   return (
