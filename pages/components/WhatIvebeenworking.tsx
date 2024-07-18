@@ -1,6 +1,9 @@
+// components/WhatIvebeenworking.tsx
 "use client";
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import { LinkPreview } from "../../@/components/ui/link-previewgit";
+
 
 interface Repo {
   language: string;
@@ -14,35 +17,40 @@ interface Repo {
   create: string;
 }
 
-const WhatIvebeenworking = () => {
+const WhatIvebeenworking: React.FC = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const token = process.env.GITHUB_TOKEN;
 
-  
+  useEffect(() => {
+    const fetchRepos = async () => {
+      try {
+        const repositories = await getRepos();
+        setRepos(repositories);
+      } catch (error) {
+        setError('Error fetching repositories');
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchRepos();
+  }, []);
+
   const getRepos = async ({
     username = 'Alex-Der-coder',
     page = 1,
     per_page = 30,
-  } = {}) => {
+  } = {}): Promise<Repo[]> => {
     try {
       const response = await fetch(
-        `https://api.github.com/users/${username}/repos?page=${page}&per_page=${per_page}&sort=updated`, {
-          headers: {
-            Authorization: `token ${token}`
-          }
-        }
+        `https://api.github.com/users/${username}/repos?page=${page}&per_page=${per_page}&sort=updated`
       );
       const repos = await response.json();
 
       const reposWithTechno = await Promise.all(
         repos.map(async (repo: any) => {
-          const languagesResponse = await fetch(repo.languages_url, {
-            headers: {
-              Authorization: `token ${token}`
-            }
-          });
+          const languagesResponse = await fetch(repo.languages_url);
           const languagesData = await languagesResponse.json();
           const languages = Object.keys(languagesData);
 
@@ -76,27 +84,12 @@ const WhatIvebeenworking = () => {
     return { formattedDate, formattedTime };
   };
 
-  useEffect(() => {
-    const fetchRepos = async () => {
-      try {
-        const repositories = await getRepos();
-        setRepos(repositories);
-      } catch (error) {
-        setError('Error fetching repositories');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchRepos();
-  }, []);
-
   if (loading) {
     return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className='hidden'>{error}</div>;
   }
 
   return (
@@ -108,17 +101,17 @@ const WhatIvebeenworking = () => {
         const { formattedDate: createDate, formattedTime: createTime } = formatDate(repo.create);
         const { formattedDate: updateDate, formattedTime: updateTime } = formatDate(repo.update);
         return (
-          <div className='w-[75%] bg-slate-500 rounded-[15px] border-2 border-slate-700 w-[75%] flex flex-row justify-between items-center flex-col mt-20' key={repo.name}>
+          <div className='w-[75%] bg-slate-500 rounded-[15px] border-2 border-slate-700 flex flex-col mt-20' key={repo.name}>
             <h2 className='bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary font-black text-lg md:text-lg lg:text-lg mb-4'>{repo.name}</h2>
             <p>Description: {repo.description}</p>
             <p>Stars: ⭐ {repo.stars}</p>
             <p>Created at: {createDate} Time: {createTime}</p>
             <p>Updated at: {updateDate} Time: {updateTime}</p>
             <a href={repo.Git}>Repository Link</a>
-            <a href={repo.url}>Deployment</a>
+            <LinkPreview url={repo.url}>Deployment</LinkPreview>
             <div className='flex w-[40%] justify-between'>
               {repo.techno.map((tech, index) => (
-                <span key={index} className="mr-2 px-2 py-1 bg-gray-200 rounded">{tech}</span>
+                <span key={index} className="mr-2 px-2 py-1 bg-gray-200 rounded text-black decoration-black">{tech}</span>
               ))}
             </div>
           </div>
