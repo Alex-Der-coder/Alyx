@@ -10,10 +10,10 @@ export default async function POST() {
       Authorization: `Bearer ${RESEND_API_KEY}`,
     },
     body: JSON.stringify({
-      from: 'Acme <onboarding@resend.dev>',
-      to: ['mr.alexandre.deroeck@gmail.com'],
+      from: 'Alex <mr.alexandre.deroeck@gmail.com>',
+      to: ['leslie.deroeck@gmail.com'],
       subject: 'hello world',
-      html: '<strong>it works!</strong>',
+      html: '<strong>it works alex as send an Email!</strong>',
     }),
   });
 
