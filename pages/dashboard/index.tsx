@@ -4,12 +4,12 @@ import { Separator } from "../../@/components/ui/separator"
 import Lamp from "../../@/components/ui/lamp"
 import Link from "next/link"
 import { Button } from "../../@/components/ui/moving-border";
+import Form from "../components/FormMail"
 
 export default function Home() {
 
   return (
 
-    
     <div className="w-full h-full flex flex-col justify-center items-center ">
           <div>
       <div className="space-y-1">
@@ -35,7 +35,6 @@ export default function Home() {
           >Delete Portefolio Projet </Link></Button>
       </div>
     </div>
-
   </div>
   );
 }

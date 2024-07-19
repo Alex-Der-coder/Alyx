@@ -5,6 +5,7 @@ import { cn } from "../@/lib/utils"
 import   HeroHighlightDemo  from "./components/HeroHighlightDemo"
 import { Meteors } from "../@/components/ui/meteors"
 import { LinkPreview } from "../@/components/ui/link-preview"
+import Form from "./components/FormMail"
 require('dotenv').config();
 /*
 export const getStaticProps = async () => {
@@ -164,6 +165,7 @@ export default function Home() {
             <Meteors number={15} />
           </div>
         </div>
+
       </section>
     </>
   )
