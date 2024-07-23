@@ -73,8 +73,7 @@ const Project = ({ proj  }) => {
         <div className="absolute flex flex-col justify-between w-[100%] text-center h-[355px] max-[640px]:text-center  " style={{transform: 'rotateY(180deg)' , WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden'}} >
           <h2 >Contexte :</h2>
           <p>{proj.contexte}</p>
-          <h2 >ID:</h2>
-          <p>{proj.id}</p>
+          <h2 className='hidden' >ID:{proj.id}</h2>
           <p>Voir le repos Git <a href={proj.repos} aria-label="Lien du projet présenter"><FontAwesomeIcon icon={faCodeFork} fade style={{color: "#1e3050",}} /></a></p>
           <button className="button_flip  hover:bg-[#fff] hover:text-[#148672] w-[33%] self-center max-[640px]:w-[45%] max-[640px]:ml-[26%]" onClick={handleButtonClick}>
            <p>Read More</p><span aria-hidden="true">

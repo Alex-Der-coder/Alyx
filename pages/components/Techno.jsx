@@ -45,7 +45,10 @@ const Techno = ({ data }) => {
           </Suspense>
   
         ))}
-        <ReactPaginate
+       
+      </div>
+
+      <ReactPaginate
           previousLabel={'Précédent'}
           nextLabel={'Suivant'}
           breakLabel={'...'}
@@ -56,9 +59,6 @@ const Techno = ({ data }) => {
           containerClassName={'pagination max-[640px]:hidden'}
           activeClassName={'active-pagination'}
         />
-       
-      </div>
-
     </section>
   );
 };
