@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import Project from './Projet';
-import ReactPaginate from 'react-paginate';
-import SkeletonCard  from './SkeletonCard';
+import SkeletonCard from './SkeletonCard';
 import { Suspense } from 'react';
 
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "../../@/components/ui/pagination";
 
 const Techno = ({ data }) => {
-console.log(data);
   const dataPerPage = 6; 
   const [currentPage, setCurrentPage] = useState(0);
 
-  const handlePageChange = ({ selected }) => {
-    setCurrentPage(selected);
+  const handlePageChange = (selectedPage) => {
+    setCurrentPage(selectedPage - 1); // -1 because Pagination component is 1-based
   };
 
   useEffect(() => {
@@ -24,41 +31,68 @@ console.log(data);
 
     const sectionElement = document.getElementById('projects');
     if (sectionElement) {
+      // Do something with the section element if needed
     }
   }, []);
 
   const offset = currentPage * dataPerPage;
   const currentPageData = data ? data.slice(offset, offset + dataPerPage) : [];
-  
+  const pageCount = Math.ceil(data.length / dataPerPage);
 
   return (
-    <section className="  max-[640px]:h-[338vh] max-[640px]:mt-[75%]     " id="projects">
+    <section className="max-[640px]:h-[338vh] max-[970px]:h-[389vh] min-[640px]:pt-[10%]  max-[640px]:mt-[75%]" id="projects">
       <div className="text-center bg-gradient-to-r from-yellow-300 to-red-700 bg-clip-text text-transparent">
         <h1>Mes Projets</h1>
       </div>
 
-      <div className="flex justify-around flex-wrap p-[5%] ml-[-1%] mt-[5%] h-[85rem]">
-      
+      <div className="flex justify-around flex-wrap p-[3%] ml-[-1%] mt-[5%] h-[85rem]">
         {currentPageData.map((projectData) => (
-          <Suspense key={projectData.id} fallback={< SkeletonCard />}> 
-              <Project key={projectData.id} proj={projectData} />
+          <Suspense key={projectData.id} fallback={<SkeletonCard />}>
+            <Project proj={projectData} />
           </Suspense>
-  
         ))}
-       
       </div>
 
-      <ReactPaginate
-          previousLabel={'Précédent'}
-          nextLabel={'Suivant'}
-          breakLabel={'...'}
-          pageCount={Math.ceil((data && data.length) / dataPerPage)}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageChange}
-          containerClassName={'pagination max-[640px]:hidden'}
-          activeClassName={'active-pagination'}
-        />
+      <div className="flex justify-center mt-[-4rem]">
+        <Pagination>
+          <PaginationContent>
+            <PaginationItem>
+              <PaginationPrevious
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handlePageChange(Math.max(currentPage, 0));
+                }}
+              />
+            </PaginationItem>
+
+            {[...Array(pageCount)].map((_, index) => (
+              <PaginationItem key={index}>
+                <PaginationLink
+                  href="#"
+                  isActive={currentPage === index}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handlePageChange(index + 1);
+                  }}
+                >
+                  {index + 1}
+                </PaginationLink>
+              </PaginationItem>
+            ))}
+
+            <PaginationItem>
+              <PaginationNext
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handlePageChange(Math.min(currentPage + 2, pageCount));
+                }}
+              />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
+      </div>
     </section>
   );
 };
