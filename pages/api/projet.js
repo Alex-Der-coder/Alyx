@@ -10,6 +10,7 @@ export default async (req, res) => {
             const users = await db
                 .collection("Portefolio")
                 .find({})
+                .sort({ id: 1 })
                 .toArray();
             res.json(users);
 

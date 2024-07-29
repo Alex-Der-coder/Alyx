@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 
 
 const Techno = ({ data }) => {
-
+console.log(data);
   const dataPerPage = 6; 
   const [currentPage, setCurrentPage] = useState(0);
 
