@@ -6,13 +6,12 @@ import AccordionDemo  from "../components/AccordionDemo";
 
 
 
-export default  function Portefolio ({ data , datarepo}: any ) {
+export default  function Portefolio ({ data }: any ) {
   
 
   return (
     <>
       <WhoIAm />
-
         <Techno data={data} />
       <AccordionDemo />
     </>
