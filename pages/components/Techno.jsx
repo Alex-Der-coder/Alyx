@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Project from './Projet';
 import SkeletonCard from './SkeletonCard';
 import { Suspense } from 'react';
@@ -13,34 +13,20 @@ import {
   PaginationPrevious,
 } from "../../@/components/ui/pagination";
 
-const Techno = ({ data }) => {
+const Techno = ({ data = [] }) => {
   const dataPerPage = 6; 
   const [currentPage, setCurrentPage] = useState(0);
 
   const handlePageChange = (selectedPage) => {
-    setCurrentPage(selectedPage - 1); // -1 because Pagination component is 1-based
+    setCurrentPage(selectedPage - 1); 
   };
 
-  useEffect(() => {
-    const paginationElement = document.querySelector('.pagination[role="navigation"]');
-
-    if (paginationElement) {
-      paginationElement.setAttribute('role', 'switch');
-      paginationElement.setAttribute('aria-label', 'change paginate');
-    }
-
-    const sectionElement = document.getElementById('projects');
-    if (sectionElement) {
-      // Do something with the section element if needed
-    }
-  }, []);
-
   const offset = currentPage * dataPerPage;
-  const currentPageData = data ? data.slice(offset, offset + dataPerPage) : [];
+  const currentPageData = data.slice(offset, offset + dataPerPage);
   const pageCount = Math.ceil(data.length / dataPerPage);
 
   return (
-    <section className="max-[640px]:h-[338vh] max-[970px]:h-[389vh] min-[640px]:pt-[10%]  max-[640px]:mt-[75%]" id="projects">
+    <section className="max-[640px]:h-[338vh] max-[970px]:h-[389vh] min-[640px]:pt-[10%] max-[640px]:mt-[75%]" id="projects">
       <div className="text-center bg-gradient-to-r from-yellow-300 to-red-700 bg-clip-text text-transparent">
         <h1>Mes Projets</h1>
       </div>
