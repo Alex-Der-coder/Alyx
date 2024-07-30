@@ -63,7 +63,7 @@ const Project = ({ proj  }) => {
                 .split('.')[0]}`}
             />
           ))}
-           <button data-testid="readmore" className="button_flip hover:bg-[#fff] hover:text-[#148672] " onClick={handleButtonClick}>
+           <button data-testid="readmore" className="flex items-center text-white text-[0.875rem] leading-7 font-medium gap-1 bg-[#0e5d4d] py-[4px] px-[8px] rounded-[4px] h-[31.1833px] transition  border-none  hover:bg-[#fff] hover:text-[#148672] " onClick={handleButtonClick}>
            <p>Read More</p><span aria-hidden="true">
         →
       </span></button>
@@ -75,7 +75,7 @@ const Project = ({ proj  }) => {
           <p>{proj.contexte}</p>
           <h2 className='hidden' >ID:{proj.id}</h2>
           <p>Voir le repos Git <a href={proj.repos} aria-label="Lien du projet présenter"><FontAwesomeIcon icon={faCodeFork} fade style={{color: "#1e3050",}} /></a></p>
-          <button className="button_flip  hover:bg-[#fff] hover:text-[#148672] w-[33%] self-center max-[640px]:w-[45%] max-[640px]:ml-[26%]" onClick={handleButtonClick}>
+          <button className="flex items-center text-white text-[0.875rem] leading-7 font-medium gap-1 bg-[#0e5d4d] py-[4px] px-[8px] rounded-[4px] h-[31.1833px] transition  border-none hover:bg-[#fff] hover:text-[#148672] w-[33%] self-center max-[640px]:w-[45%] max-[640px]:ml-[26%]" onClick={handleButtonClick}>
            <p>Read More</p><span aria-hidden="true">
         →
       </span></button>
